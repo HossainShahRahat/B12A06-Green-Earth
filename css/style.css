@@ -23,7 +23,7 @@ nav a {
     align-items: center;
 }
 
-.Plant-a-Tree-button button {
+.button-type-1 button {
     background-color: #facc15;
     color: #15803d;
     border: none;
@@ -33,7 +33,38 @@ nav a {
     font-size: 16px;
 }
 
-.Plant-a-Tree-button {
+.button-type-1 {
     display: flex;
     align-items: center;
+}
+
+.banner-content {
+    text-align: center;
+    background-color: #cff0dc;
+}
+
+.banner-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #1f2937;
+}
+
+.banner-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #425158;
+}
+
+.banner-content .button-type-1 button {
+    font-size: 18px;
+    padding: 12px 30px;
+    margin: 0 auto;
+}
+
+banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cff0dc;
+    max-height: 383px;
 }
