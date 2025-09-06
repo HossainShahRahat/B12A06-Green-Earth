@@ -49,7 +49,7 @@ nav a {
     background-color: #15803d;
     color: #FFFFFF;
     border: none;
-    padding: 10px 108px;
+    padding: 10px 130px;
     border-radius: 999px;
     cursor: pointer;
     font-size: 16px;
@@ -99,7 +99,8 @@ banner {
     text-align: left;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 16px;
-    width: 300px;
+    width: 343.33px;
+    height: 431.8px;
     background-color: white;
 }
 
@@ -107,12 +108,12 @@ banner {
     border: 1px solid #ededed;
     border-radius: 8px;
     background-color: #ededed;
-    height: 200px;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
+    height: 186.8px;
+    object-fit: cover;
 }
 
 .card-type {
@@ -131,9 +132,7 @@ banner {
 
 .Tree-Section-Container-Left {
     align-items: center;
-    margin-left: 20px;
-    max-width: 479px;
-    max-height: auto;
+    margin-left: 70px;
 }
 
 .Tree-Section-Container-Left ul li {
@@ -150,16 +149,17 @@ banner {
 }
 
 .Choose-Your-Trees-Section {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding-left: 135px;
-    padding-right: 135px;
+    display: flex;
+    flex-direction: wrap;
 }
 
 .Tree-Section-Container-Body {
     max-width: 1090px;
+    max-height: 793.6px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin: 0 auto;
 }
 
 .Tree-Section-Container-Right {
@@ -169,10 +169,74 @@ banner {
     text-align: left;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 16px;
+    margin-left: 70px;
     width: 300px;
+    height: 930px;
     background-color: white;
 }
 
 .Tree-Section-Container-Right h3 {
     font-size: 24px;
+}
+
+.About-Campaign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 16px;
+}
+
+.About-Campaign-Container-Right p,
+ul li {
+    color: #49545d;
+}
+
+.About-Campaign-Container-Right {
+    padding-left: 26px;
+}
+
+.Our-Impact-Section {
+    background-color: #cff0dc;
+    padding: 40px 0;
+}
+
+.Our-Impact-Box {
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 16px;
+    width: 316.76px;
+    height: 90px;
+    background-color: white;
+}
+
+.Our-Impact-Box h2 {
+    color: #228747;
+}
+
+.Our-Impact-Box p {
+    color: #4c545f;
+}
+
+.Our-Impact-Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1090px;
+    margin: 0 auto;
+}
+
+.Plant-a-Tree-Today-Section {
+    background-color: #166534;
+    padding: 40px 0;
+}
+
+.Plant-a-Tree-Today-Form {
+    background-color: #15803d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
