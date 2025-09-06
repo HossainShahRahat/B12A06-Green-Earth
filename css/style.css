@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #15803d;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 10px;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.Plant-a-Tree-button button {
+    background-color: #facc15;
+    color: #15803d;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.Plant-a-Tree-button {
+    display: flex;
+    align-items: center;
+}
