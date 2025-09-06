@@ -1,6 +1,8 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #f0fdf4;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 nav {
@@ -31,6 +33,27 @@ nav a {
     border-radius: 999px;
     cursor: pointer;
     font-size: 16px;
+}
+
+.button-type-2 button {
+    background-color: #DCFCE7;
+    color: #15803D;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-type-3 button {
+    background-color: #15803d;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 108px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 auto;
 }
 
 .button-type-1 {
@@ -67,4 +90,89 @@ banner {
     align-items: center;
     background-color: #cff0dc;
     max-height: 383px;
+}
+
+.card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 16px;
+    width: 300px;
+    background-color: white;
+}
+
+.image-container {
+    border: 1px solid #ededed;
+    border-radius: 8px;
+    background-color: #ededed;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.Tress-Section-Headline {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #1f2937;
+}
+
+.Tree-Section-Container-Left {
+    align-items: center;
+    margin-left: 20px;
+    max-width: 479px;
+    max-height: auto;
+}
+
+.Tree-Section-Container-Left ul li {
+    text-decoration: none;
+    list-style: none;
+    text-align: left;
+    margin-bottom: 15px;
+    color: #1f2937;
+    cursor: pointer;
+}
+
+.Tree-Section-Container-Left ul {
+    padding: 10px;
+}
+
+.Choose-Your-Trees-Section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 135px;
+    padding-right: 135px;
+}
+
+.Tree-Section-Container-Body {
+    max-width: 1090px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.Tree-Section-Container-Right {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 16px;
+    width: 300px;
+    background-color: white;
+}
+
+.Tree-Section-Container-Right h3 {
+    font-size: 24px;
 }
