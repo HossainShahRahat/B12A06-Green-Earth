@@ -43,7 +43,7 @@
             <div class="Tree-Section-Container-Left">
                 <h2>Categories</h2>
                 <ul>
-                    <li>All Trees</li>
+                    <li class="selected" style="color: white;">All Trees</li>
                     <li>Fruit Trees</li>
                     <li>Flowering Trees</li>
                     <li>Shade Trees</li>
@@ -221,22 +221,20 @@
         <div class="Plant-a-Tree-Today-Section">
             <h1 style="text-align: center; padding-bottom: 16px; color: white;">Plant a Tree Today</h1>
             <form action="" class="Plant-a-Tree-Today-Form">
-                <input type="email" placeholder="Your Name" required>
+                <input type="text" placeholder="Your Name" required>
+
                 <input type="email" placeholder="Your Email Address" required>
-                <select name="Number-of-Trees" id="Number-of-Trees">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
+
+                <input type="number" name="Number-of-Trees" id="Number-of-Trees" required placeholder="Number of Trees">
+
                 <div class="button-type-4">
-                    <button type="submit">Subscribe</button>
+                    <button>Donate Now</button>
                 </div>
             </form>
         </div>
     </section>
     <footer>
-
+        <p>&copy; 2025 Green Earth. All Rights Reserved.</p>
     </footer>
 </body>
 

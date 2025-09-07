@@ -56,6 +56,16 @@ nav a {
     margin: 0 auto;
 }
 
+.button-type-4 button {
+    background-color: #facc15;
+    color: #15803d;
+    border: none;
+    padding: 10px 240px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 .button-type-1 {
     display: flex;
     align-items: center;
@@ -145,7 +155,8 @@ banner {
 }
 
 .Tree-Section-Container-Left ul {
-    padding: 10px;
+    padding-left: 10px;
+    margin-top: 20px;
 }
 
 .Choose-Your-Trees-Section {
@@ -154,11 +165,8 @@ banner {
 }
 
 .Tree-Section-Container-Body {
-    max-width: 1090px;
-    max-height: 793.6px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
     margin: 0 auto;
 }
 
@@ -169,7 +177,7 @@ banner {
     text-align: left;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 16px;
-    margin-left: 70px;
+    margin-right: 70px;
     width: 300px;
     height: 930px;
     background-color: white;
@@ -239,4 +247,41 @@ ul li {
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+
+.Plant-a-Tree-Today-Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #1e8449;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    width: 650px;
+    height: 311px;
+}
+
+.Plant-a-Tree-Today-Form input[type=text],
+.Plant-a-Tree-Today-Form input[type=email],
+.Plant-a-Tree-Today-Form input[type=number] {
+    width: 570px;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: #14532d;
+    color: white;
+    text-align: center;
+    padding: 7px 0;
+}
+
+.selected {
+    background-color: #15803d;
+    padding: 5px 100px 5px 10px;
+    border-radius: 4px;
 }
