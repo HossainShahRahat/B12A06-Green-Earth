@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Earth</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
@@ -42,154 +43,24 @@
         <div class="Choose-Your-Trees-Section">
             <div class="Tree-Section-Container-Left">
                 <h2>Categories</h2>
-                <ul>
-                    <li class="selected" style="color: white;">All Trees</li>
-                    <li>Fruit Trees</li>
-                    <li>Flowering Trees</li>
-                    <li>Shade Trees</li>
-                    <li>Medicinal Trees</li>
-                    <li>Timber Trees</li>
-                    <li>Evergreen Trees</li>
-                    <li>Ornamental Plants</li>
-                    <li>Bamboo</li>
-                    <li>Climbers</li>
-                    <li>Aquatic Plants</li>
+                <ul id="category-list">
                 </ul>
             </div>
-            <div class="Tree-Section-Container-Body">
-                <div class="card">
-                    <div class="image-container">
-
-                    </div>
-                    <h3>Mango Tree</h3>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p>
-                    <div class="card-type">
-                        <div class="button-type-2">
-                            <button>Fruit Tree</button>
-                        </div>
-                        <div class="cost">
-                            <h2>৳500</h2>
-                        </div>
-                    </div>
-
-                    <div class="button-type-3">
-                        <button>Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="image-container">
-
-                    </div>
-                    <h3>Mango Tree</h3>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p>
-                    <div class="card-type">
-                        <div class="button-type-2">
-                            <button>Fruit Tree</button>
-                        </div>
-                        <div class="cost">
-                            <h2>৳500</h2>
-                        </div>
-                    </div>
-
-                    <div class="button-type-3">
-                        <button>Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="image-container">
-
-                    </div>
-                    <h3>Mango Tree</h3>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p>
-                    <div class="card-type">
-                        <div class="button-type-2">
-                            <button>Fruit Tree</button>
-                        </div>
-                        <div class="cost">
-                            <h2>৳500</h2>
-                        </div>
-                    </div>
-
-                    <div class="button-type-3">
-                        <button>Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="image-container">
-
-                    </div>
-                    <h3>Mango Tree</h3>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p>
-                    <div class="card-type">
-                        <div class="button-type-2">
-                            <button>Fruit Tree</button>
-                        </div>
-                        <div class="cost">
-                            <h2>৳500</h2>
-                        </div>
-                    </div>
-
-                    <div class="button-type-3">
-                        <button>Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="image-container">
-
-                    </div>
-                    <h3>Mango Tree</h3>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p>
-                    <div class="card-type">
-                        <div class="button-type-2">
-                            <button>Fruit Tree</button>
-                        </div>
-                        <div class="cost">
-                            <h2>৳500</h2>
-                        </div>
-                    </div>
-
-                    <div class="button-type-3">
-                        <button>Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="image-container">
-
-                    </div>
-                    <h3>Mango Tree</h3>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p>
-                    <div class="card-type">
-                        <div class="button-type-2">
-                            <button>Fruit Tree</button>
-                        </div>
-                        <div class="cost">
-                            <h2>৳500</h2>
-                        </div>
-                    </div>
-
-                    <div class="button-type-3">
-                        <button>Add to Cart</button>
-                    </div>
-                </div>
-
+            <div class=" Tree-Section-Container-Body" id="card-container">
             </div>
-            <div class="Tree-Section-Container-Right">
+            <div class="Tree-Section-Container-Right ">
                 <h3>Your Cart</h3>
             </div>
         </div>
+        </div>
     </section>
     <section>
-        <h1 style="text-align: center;">About the Campaign</h1>
-        <div class="About-Campaign">
-            <div class="About-Campaign-Container-left">
-                <img src="assets/about.png" alt="">
+        <h1 style="text-align: center; ">About the Campaign</h1>
+        <div class="About-Campaign ">
+            <div class="About-Campaign-Container-left ">
+                <img src="assets/about.png " alt=" ">
             </div>
-            <div class="About-Campaign-Container-Right">
+            <div class="About-Campaign-Container-Right ">
                 <p>Green Earth is a global tree plantation initiative dedicated to fighting<br>climate change. Since our start, we’ve planted over 500,000 trees<br>worldwide. By joining our campaign, you help restore forests, create<br>habitats for wildlife,
                     and combat global warming.</p>
                 <ul>
@@ -201,33 +72,33 @@
         </div>
     </section>
     <section>
-        <div class="Our-Impact-Section">
-            <h1 style="text-align: center; padding-bottom: 16px;">Our Impact</h1>
-            <div class="Our-Impact-Container">
-                <div class="Our-Impact-Box">
+        <div class="Our-Impact-Section ">
+            <h1 style="text-align: center; padding-bottom: 16px; ">Our Impact</h1>
+            <div class="Our-Impact-Container ">
+                <div class="Our-Impact-Box ">
                     <h2>500,000+</h2>
                     <p>Trees Planted</p>
                 </div>
-                <div class="Our-Impact-Box">
+                <div class="Our-Impact-Box ">
                     <h2>120+</h2>
                     <p>Communities Involved</p>
                 </div>
-                <div class="Our-Impact-Box">
+                <div class="Our-Impact-Box ">
                     <h2>30+</h2>
                     <p>Countries Reached</p>
                 </div>
     </section>
     <section>
-        <div class="Plant-a-Tree-Today-Section">
-            <h1 style="text-align: center; padding-bottom: 16px; color: white;">Plant a Tree Today</h1>
-            <form action="" class="Plant-a-Tree-Today-Form">
-                <input type="text" placeholder="Your Name" required>
+        <div class="Plant-a-Tree-Today-Section ">
+            <h1 style="text-align: center; padding-bottom: 16px; color: white; ">Plant a Tree Today</h1>
+            <form action=" " class="Plant-a-Tree-Today-Form ">
+                <input type="text" placeholder="Your Name " required>
 
-                <input type="email" placeholder="Your Email Address" required>
+                <input type="email" placeholder="Your Email Address " required>
 
-                <input type="number" name="Number-of-Trees" id="Number-of-Trees" required placeholder="Number of Trees">
+                <input type="number" name="Number-of-Trees " id="Number-of-Trees " required placeholder="Number of Trees ">
 
-                <div class="button-type-4">
+                <div class="button-type-4 ">
                     <button>Donate Now</button>
                 </div>
             </form>

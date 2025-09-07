@@ -110,11 +110,11 @@ banner {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 16px;
     width: 343.33px;
-    height: 431.8px;
+    height: auto;
     background-color: white;
 }
 
-.image-container {
+.image-container img {
     border: 1px solid #ededed;
     border-radius: 8px;
     background-color: #ededed;
@@ -124,6 +124,10 @@ banner {
     margin-bottom: 3px;
     height: 186.8px;
     object-fit: cover;
+}
+
+img {
+    width: 100%;
 }
 
 .card-type {
@@ -143,9 +147,11 @@ banner {
 .Tree-Section-Container-Left {
     align-items: center;
     margin-left: 70px;
+    padding-right: 70px;
 }
 
 .Tree-Section-Container-Left ul li {
+    font-size: 18px;
     text-decoration: none;
     list-style: none;
     text-align: left;
@@ -155,8 +161,15 @@ banner {
 }
 
 .Tree-Section-Container-Left ul {
-    padding-left: 10px;
+    padding-left: 0px;
     margin-top: 20px;
+}
+
+.Tree-Section-Container-Left li:hover {
+    background-color: #15803d;
+    color: white;
+    padding: 4px 16px 4px 4px;
+    border-radius: 4px;
 }
 
 .Choose-Your-Trees-Section {
