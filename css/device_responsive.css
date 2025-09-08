@@ -1,0 +1,200 @@
+/* Media query for tablets */
+
+@media (max-width: 1024px) {
+    nav {
+        padding: 10px 20px;
+    }
+    .logo {
+        font-size: 0.8em;
+        text-align: left;
+        padding-right: 24em;
+        padding-top: 1em;
+    }
+    nav a {
+        display: flex;
+        flex-direction: row;
+        font-size: 0.9em;
+        padding: 10px 12px;
+    }
+    .Choose-Your-Trees-Section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .Tree-Section-Container-Body {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .Tree-Section-Container-Right {
+        margin-right: 16px;
+    }
+    .About-Campaign {
+        padding: 0 16px;
+    }
+}
+
+
+/* Media query for tablets and mobile devices */
+
+@media (max-width: 768px) {
+    /* General Body Text */
+    body {
+        font-size: 14px;
+    }
+    /* Navigation adjustments */
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+    nav a {
+        padding: 8px 0;
+        font-size: 1em;
+    }
+    .logo h1 {
+        margin: 0;
+        font-size: 1.8em;
+    }
+    /* Banner adjustments */
+    .banner {
+        flex-direction: column;
+        padding: 20px;
+        max-height: none;
+        text-align: center;
+    }
+    .banner-left-image,
+    .banner-right-image {
+        display: none;
+        /* Hide decorative images on small screens */
+    }
+    .banner-content h1 {
+        font-size: 28px;
+    }
+    .banner-content p {
+        font-size: 14px;
+    }
+    .banner-content p br {
+        display: none;
+        /* remove line breaks on mobile */
+    }
+    .button-type-1 button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    /* Choose Your Trees Section */
+    .Choose-Your-Trees-Section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .Tree-Section-Container-Left {
+        width: fit-content;
+        margin: 16px 0;
+        text-align: center;
+        background-color: #f0fdf4;
+        border-radius: 0;
+        position: sticky;
+        top: 0;
+        overflow: hidden;
+    }
+    .Tree-Section-Container-Left ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+    .Tree-Section-Container-Left li {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+    .Tree-Section-Container-Body {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+    }
+    .Tree-Section-Container-Right {
+        width: 90%;
+        margin: 16px auto;
+    }
+    .card {
+        width: auto;
+        /* Let the grid control the width */
+        padding: 12px;
+    }
+    /* About Campaign Section */
+    .About-Campaign {
+        flex-direction: column;
+        text-align: center;
+    }
+    .About-Campaign-Container-Right {
+        padding: 0 15px;
+    }
+    .About-Campaign-Container-Right p br {
+        display: none;
+        /* remove line breaks on mobile */
+    }
+    .About-Campaign-Container-Right ul {
+        list-style-position: inside;
+        /* Keep bullets inside text block */
+        text-align: left;
+        display: inline-block;
+        margin-top: 1rem;
+    }
+    /* Our Impact Section */
+    .Our-Impact-Container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .Our-Impact-Box {
+        width: 80%;
+    }
+    .Our-Impact-Box h2 {
+        font-size: 1.5em;
+    }
+    .Our-Impact-Box p {
+        font-size: 0.9em;
+    }
+    /* Plant a Tree Form Section */
+    .Plant-a-Tree-Today-Form {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .Plant-a-Tree-Today-Form input[type=text],
+    .Plant-a-Tree-Today-Form input[type=email],
+    .Plant-a-Tree-Today-Form input[type=number] {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .button-type-3 button,
+    .button-type-4 button {
+        padding: 10px 15px;
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+
+/* Media query for smaller mobile devices like iPhone 14/15 Pro Max */
+
+@media (max-width: 480px) {
+    .banner-content h1 {
+        font-size: 24px;
+    }
+    .Tree-Section-Container-Body {
+        grid-template-columns: 1fr;
+        /* Stack cards in a single column */
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    .card {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .About-Campaign-Container-left img {
+        width: 90%;
+    }
+}

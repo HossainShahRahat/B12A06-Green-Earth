@@ -5,11 +5,23 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+#About-Campaign-Container {
+    scroll-behavior: smooth;
+}
+
+#Plant-a-Tree-Today-Container {
+    scroll-behavior: smooth;
+}
+
 nav {
     background-color: #15803d;
-    overflow: hidden;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     color: white;
 }
 
@@ -94,7 +106,7 @@ nav a {
     margin: 0 auto;
 }
 
-banner {
+.banner {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,39 +149,37 @@ img {
     margin-top: 10px;
 }
 
-.Tress-Section-Headline {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    color: #1f2937;
-}
-
 .Tree-Section-Container-Left {
-    align-items: center;
-    margin-left: 70px;
-    padding-right: 70px;
-}
-
-.Tree-Section-Container-Left ul li {
-    font-size: 18px;
-    text-decoration: none;
-    list-style: none;
-    text-align: left;
-    margin-bottom: 15px;
-    color: #1f2937;
-    cursor: pointer;
+    width: 250px;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    height: fit-content;
 }
 
 .Tree-Section-Container-Left ul {
-    padding-left: 0px;
-    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Tree-Section-Container-Left li {
+    padding: 12px 20px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .Tree-Section-Container-Left li:hover {
-    background-color: #15803d;
+    background-color: #2e7d32;
     color: white;
-    padding: 4px 16px 4px 4px;
-    border-radius: 4px;
+}
+
+.Tree-Section-Container-Left li.selected {
+    background-color: #2e7d32;
+    color: white;
 }
 
 .Choose-Your-Trees-Section {
@@ -192,7 +202,7 @@ img {
     margin: 16px;
     margin-right: 70px;
     width: 300px;
-    height: 930px;
+    height: auto;
     background-color: white;
 }
 
@@ -293,8 +303,143 @@ footer {
     padding: 7px 0;
 }
 
-.selected {
-    background-color: #15803d;
-    padding: 5px 100px 5px 10px;
-    border-radius: 4px;
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#modal-body img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+#modal-body h2 {
+    margin: 0.5rem 0;
+}
+
+#modal-body p {
+    margin: 0.5rem 0;
+}
+
+#modal-body .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-top: 1rem;
+}
+
+.Tree-Section-Container-Right {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.cart-item {
+    background-color: #e6f7ea;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-item-details .item-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.cart-item-details .item-price {
+    color: #555;
+    margin: 4px 0 0;
+    font-size: 0.9em;
+}
+
+.remove-from-cart-btn {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: #888;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.remove-from-cart-btn:hover {
+    color: #000;
+}
+
+#cart-total {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.zoom {
+    padding: 30px;
+    transition: transform .3s;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    transform: scale(1.2);
 }
