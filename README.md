@@ -1,3 +1,30 @@
+**1. What is the difference between var, let, and const?**<br>
+	These are all ways to declare variables, but they have different rules about scope and reassigning values.
+	var: The old way. It's function-scoped, meaning it's only confined to the function it was declared in. You can update and re-declare it, which can sometimes lead to bugs. It's generally best to avoid var.
+	let: The new, preferred way for variables that will change. It's block-scoped ({}), meaning it's only available within the block it's defined in. You can update its value, but you can't re-declare it in the same scope.
+	const: Used for variables that should not change. It's also block-scoped. You must assign it a value when you declare it, and you cannot reassign it later.
+
+**2. What is the difference between map(), forEach(), and filter()?**<br>
+	All three are array methods that loop over an array, but they do different things.
+	forEach(): Simply executes a function once for each element in an array. It doesn't return anything. Think of it as a basic loop for when you just want to do something with each item, like logging it.
+	map(): Creates a new array by transforming every element in the original array. The new array will always have the same length as the original. It's perfect for when you want to change each item into something else.
+	filter(): Creates a new array with only the elements that pass a test you provide. The new array can be shorter than the original. It's great for selecting a subset of data.
+
+**3. What are arrow functions in ES6?**<br>
+	Arrow functions are a shorter way to write function expressions. The main difference is that they don't have their own this keyword; they inherit it from the parent scope. This behavior helps avoid common bugs 		related to this inside callbacks.
+
+**4. How does destructuring assignment work in ES6?**<br>
+	Destructuring is a shortcut for unpacking values from objects or arrays into their own variables. It makes your code cleaner and easier to read by avoiding repetitive dot or bracket notation. For example, you can pull 	properties like firstName and lastName from a person object directly into variables with the same names.
+
+**5. Explain template literals in ES6.**<br>
+	Template literals are an easier way to create strings, especially complex ones. You use backticks (`) instead of single or double quotes.
+	They are better than traditional string concatenation (+) for two main reasons:
+	Embedded Expressions: You can easily embed variables and expressions directly into the string using the ${...} syntax.
+	Multi-line Strings: You can create multi-line strings without needing to use the newline character (\n).
+
+
+
+
 ## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-006
 
 ### 📅 Deadline For 60 marks: 9th September, 2025 (11:59 pm ⏱️)
@@ -5,17 +32,6 @@
 ### 📅 Deadline For 50 marks : 13th September , 2025 (6:00 pm⏱️)
 
 ### 📅 Deadline For 30 marks: Any time after 13the September , 2025 (6:01 pm⏱️).
-
----
-# Green Earth
-
-
-## Private Repository: https://classroom.github.com/a/nVZrg5R9 
-
-## Alternative Private Repository: https://classroom.github.com/a/KCGI14ST 
-
-## Alternative Private Repository: https://classroom.github.com/a/JMuIYqgK 
-
 
 ---
 🌴 API Endpoints
