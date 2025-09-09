@@ -1,10 +1,8 @@
-// API URLs
 const all_plants_URL = "https://openapi.programming-hero.com/api/plants";
 const all_categories_URL = "https://openapi.programming-hero.com/api/categories";
 const plants_by_categories_URL = "https://openapi.programming-hero.com/api/category/${id}";
 const plants_detail_URL = "https://openapi.programming-hero.com/api/plant/${id}";
 
-// DOM Elements
 const closeButton = document.querySelector(".close-button");
 const categoryList = document.getElementById("category-list");
 const productList = document.getElementById("card-container");
@@ -13,16 +11,13 @@ const modal = document.getElementById("plant-modal");
 const cartItemsContainer = document.getElementById("cart-items");
 const cartTotalContainer = document.getElementById("cart-total");
 
-// Global State
 let cart = [];
 let currentPlants = [];
 
-// Initial Load
 loadPlants();
 loadAndDisplayCategories();
 updateCartDisplay();
 
-// Event Listeners
 allTree.addEventListener("click", () => {
     handleCategorySelection(allTree);
     loadPlants();
@@ -56,7 +51,6 @@ window.addEventListener("click", (event) => {
     }
 });
 
-// --- NEW --- Function to show the loading spinner
 function showLoader() {
     productList.innerHTML = `
         <div class="content-loader">
@@ -65,7 +59,6 @@ function showLoader() {
     `;
 }
 
-// Data Fetching and Display Functions
 function loadAndDisplayCategories() {
     fetch(all_categories_URL)
         .then(res => res.json())
@@ -77,7 +70,7 @@ function loadAndDisplayCategories() {
                     li.classList.add("cursor-pointer");
                     li.addEventListener("click", () => {
                         handleCategorySelection(li);
-                        loadSelectivePlants(category.id); // Updated event listener
+                        loadSelectivePlants(category.id); 
                     });
                     categoryList.appendChild(li);
                 });
@@ -88,13 +81,13 @@ function loadAndDisplayCategories() {
 
 function loadPlants() {
     handleCategorySelection(allTree);
-    showLoader(); // --- ADDED --- Show loader before fetching
+    showLoader(); 
     fetch(all_plants_URL)
         .then(res => res.json())
         .then(data => {
             if (data && data.plants) {
                 currentPlants = data.plants;
-                productList.innerHTML = ""; // Clear loader
+                productList.innerHTML = ""; 
                 currentPlants.forEach(plant => {
                     const card = createPlantCard(plant);
                     productList.appendChild(card);
@@ -103,18 +96,18 @@ function loadPlants() {
         })
         .catch(error => {
             console.error("Error fetching all plants:", error);
-            productList.innerHTML = "<p>Failed to load plants. Please try again.</p>"; // Error message
+            productList.innerHTML = "<p>Failed to load plants. Please try again.</p>"; 
         });
 }
 
 function loadSelectivePlants(id) {
-    showLoader(); // --- ADDED --- Show loader before fetching
+    showLoader(); 
     fetch(plants_by_categories_URL.replace("${id}", id))
         .then(res => res.json())
         .then(data => {
             if (data && data.plants) {
                 currentPlants = data.plants;
-                productList.innerHTML = ""; // Clear loader
+                productList.innerHTML = ""; 
                 currentPlants.forEach(plant => {
                     const card = createPlantCard(plant);
                     productList.appendChild(card);
@@ -123,10 +116,9 @@ function loadSelectivePlants(id) {
         })
         .catch(error => {
             console.error(`Error fetching plants for category ${id}:`, error);
-            productList.innerHTML = "<p>Failed to load plants. Please try again.</p>"; // Error message
+            productList.innerHTML = "<p>Failed to load plants. Please try again.</p>"; 
         });
 }
-
 
 function loadPlantDetails(id) {
     if (!id) {
@@ -143,7 +135,6 @@ function loadPlantDetails(id) {
         .catch(error => console.error(`Error fetching details for plant ${id}:`, error));
 }
 
-// UI Helper Functions
 function handleCategorySelection(selectedLi) {
     const allCategoryItems = categoryList.querySelectorAll('li');
     allCategoryItems.forEach(li => {
@@ -191,7 +182,6 @@ const displayModal = (plant) => {
     modal.style.display = "flex";
 };
 
-// Cart Management Functions
 function addToCart(plantId) {
     const plantToAdd = currentPlants.find(plant => plant.id == plantId);
     if (plantToAdd) {
