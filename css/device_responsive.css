@@ -18,16 +18,10 @@
         padding: 20px;
     }
     .banner-left-image {
-        width: 20%;
-        position: absolute;
-        left: 1px;
-        bottom: 70px;
+        width: 40%;
     }
     .banner-right-image {
-        width: 20%;
-        position: absolute;
-        right: 1px;
-        bottom: 70px;
+        width: 40%;
     }
     .banner-content h1 {
         font-size: 28px;
@@ -144,16 +138,10 @@
         padding: 20px;
     }
     .banner-left-image {
-        width: 30%;
-        position: absolute;
-        left: 1px;
-        bottom: 425px;
+        width: 40%;
     }
     .banner-right-image {
-        width: 30%;
-        position: absolute;
-        right: 1px;
-        bottom: 425px;
+        width: 40%;
     }
     .banner-content h1 {
         font-size: 18px;

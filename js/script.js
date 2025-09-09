@@ -1,20 +1,63 @@
+// API URLs
 const all_plants_URL = "https://openapi.programming-hero.com/api/plants";
 const all_categories_URL = "https://openapi.programming-hero.com/api/categories";
-const plants_by_categories_URL = "https://openapi.programming-hero.com/api/category/";
-const plants_detail_URL = "https://openapi.programming-hero.com/api/plant/";
+const plants_by_categories_URL = "https://openapi.programming-hero.com/api/category/${id}";
+const plants_detail_URL = "https://openapi.programming-hero.com/api/plant/${id}";
 
+// DOM Elements
+const closeButton = document.querySelector(".close-button");
 const categoryList = document.getElementById("category-list");
 const productList = document.getElementById("card-container");
 const allTree = document.getElementById("all-tree");
 const modal = document.getElementById("plant-modal");
-const closeButton = document.querySelector(".close-button");
 const cartItemsContainer = document.getElementById("cart-items");
 const cartTotalContainer = document.getElementById("cart-total");
 
+// Global State
 let cart = [];
 let currentPlants = [];
 
-function showContentLoader() {
+// Initial Load
+loadPlants();
+loadAndDisplayCategories();
+updateCartDisplay();
+
+// Event Listeners
+allTree.addEventListener("click", () => {
+    handleCategorySelection(allTree);
+    loadPlants();
+});
+
+productList.addEventListener("click", (event) => {
+    if (event.target.classList.contains("add-to-cart-btn")) {
+        const plantId = event.target.dataset.plantId;
+        addToCart(plantId);
+    } else if (event.target.closest(".card")) {
+        const clickedCard = event.target.closest(".card");
+        const plantId = clickedCard.dataset.plantId;
+        loadPlantDetails(plantId);
+    }
+});
+
+cartItemsContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('remove-from-cart-btn')) {
+        const plantId = event.target.dataset.plantId;
+        removeFromCart(plantId);
+    }
+});
+
+closeButton.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+// --- NEW --- Function to show the loading spinner
+function showLoader() {
     productList.innerHTML = `
         <div class="content-loader">
             <div class="spinner"></div>
@@ -22,7 +65,7 @@ function showContentLoader() {
     `;
 }
 
-
+// Data Fetching and Display Functions
 function loadAndDisplayCategories() {
     fetch(all_categories_URL)
         .then(res => res.json())
@@ -31,84 +74,107 @@ function loadAndDisplayCategories() {
                 data.categories.forEach(category => {
                     const li = document.createElement("li");
                     li.textContent = category.category_name;
-                    li.dataset.categoryId = category.id;
+                    li.classList.add("cursor-pointer");
+                    li.addEventListener("click", () => {
+                        handleCategorySelection(li);
+                        loadSelectivePlants(category.id); // Updated event listener
+                    });
                     categoryList.appendChild(li);
                 });
             }
         })
-        .catch(error => console.error("Failed to load categories:", error));
+        .catch(error => console.error("Error fetching categories:", error));
 }
 
-function fetchAndDisplayPlants(url) {
-    showContentLoader();
-
-    fetch(url)
+function loadPlants() {
+    handleCategorySelection(allTree);
+    showLoader(); // --- ADDED --- Show loader before fetching
+    fetch(all_plants_URL)
         .then(res => res.json())
         .then(data => {
-            currentPlants = data.plants || [];
-            displayPlants(currentPlants);
-        })
-        .catch(error => {
-            console.error("Failed to load plants:", error);
-            productList.innerHTML = "<p>Sorry, we could not load the trees. Please try again.</p>";
-        });
-}
-
-function loadPlantDetails(id) {
-    if (!id) return;
-
-    const modalBody = document.getElementById("modal-body");
-    modalBody.innerHTML = `<div class="spinner"></div>`;
-    modal.style.display = "flex";
-
-    fetch(plants_detail_URL + id)
-        .then(res => res.json())
-        .then(data => {
-            if (data && data.plant) {
-                displayModal(data.plant);
+            if (data && data.plants) {
+                currentPlants = data.plants;
+                productList.innerHTML = ""; // Clear loader
+                currentPlants.forEach(plant => {
+                    const card = createPlantCard(plant);
+                    productList.appendChild(card);
+                });
             }
         })
         .catch(error => {
-            console.error("Failed to load plant details:", error);
-            modalBody.innerHTML = "<p>Could not load plant details.</p>";
+            console.error("Error fetching all plants:", error);
+            productList.innerHTML = "<p>Failed to load plants. Please try again.</p>"; // Error message
+        });
+}
+
+function loadSelectivePlants(id) {
+    showLoader(); // --- ADDED --- Show loader before fetching
+    fetch(plants_by_categories_URL.replace("${id}", id))
+        .then(res => res.json())
+        .then(data => {
+            if (data && data.plants) {
+                currentPlants = data.plants;
+                productList.innerHTML = ""; // Clear loader
+                currentPlants.forEach(plant => {
+                    const card = createPlantCard(plant);
+                    productList.appendChild(card);
+                });
+            }
+        })
+        .catch(error => {
+            console.error(`Error fetching plants for category ${id}:`, error);
+            productList.innerHTML = "<p>Failed to load plants. Please try again.</p>"; // Error message
         });
 }
 
 
-function displayPlants(plants) {
-    productList.innerHTML = "";
-    if (plants.length === 0) {
-        productList.innerHTML = "<p>No plants found in this category.</p>";
+function loadPlantDetails(id) {
+    if (!id) {
+        console.error("Invalid plant ID");
         return;
     }
-    plants.forEach(plant => {
-        const card = createPlantCard(plant);
-        productList.appendChild(card);
+    fetch(plants_detail_URL.replace("${id}", id))
+        .then(res => res.json())
+        .then(data => {
+            if (data && data.plants) {
+                displayModal(data.plants);
+            }
+        })
+        .catch(error => console.error(`Error fetching details for plant ${id}:`, error));
+}
+
+// UI Helper Functions
+function handleCategorySelection(selectedLi) {
+    const allCategoryItems = categoryList.querySelectorAll('li');
+    allCategoryItems.forEach(li => {
+        li.classList.remove('selected');
     });
+    selectedLi.classList.add('selected');
 }
 
 function createPlantCard(plant) {
     const cardWrapper = document.createElement("div");
-    cardWrapper.className = "card";
-    cardWrapper.dataset.plantId = plant.id;
+    cardWrapper.classList.add("p-4", "rounded-xl", "shadow-md", "bg-white");
 
     cardWrapper.innerHTML = `
-        <div class="image-container">
-            <img src="${plant.image}" alt="${plant.name}" />
-        </div>
-        <h3>${plant.name}</h3>
-        <p>${plant.description.substring(0, 80)}...</p>
-        <div class="card-type">
-            <div class="button-type-2">
-                <button>${plant.category}</button>
-            </div>
-            <div class="cost">
-                <h2>৳${plant.price}</h2>
-            </div>
-        </div>
-        <div class="button-type-3">
-            <button class="add-to-cart-btn" data-plant-id="${plant.id}">Add to Cart</button>
-        </div>
+      <div class="card" data-plant-id="${plant.id}">
+          <div class="image-container">
+              <img src="${plant.image}" alt="${plant.name}" />
+          </div>
+          <h3>${plant.name}</h3>
+          <p>${plant.description.substring(0, 80)}...</p>
+          <div class="card-type">
+              <div class="button-type-2">
+                  <button>${plant.category}</button>
+              </div>
+              <div class="cost">
+                  <h2>৳${plant.price}</h2>
+              </div>
+          </div>
+          <div class="button-type-3">
+              <button class="add-to-cart-btn" data-plant-id="${plant.id}">Add to Cart</button>
+          </div>
+      </div>
     `;
     return cardWrapper;
 }
@@ -122,14 +188,10 @@ const displayModal = (plant) => {
         <p><strong>Category:</strong> ${plant.category}</p>
         <div class="price">Price: ৳${plant.price}</div>
     `;
+    modal.style.display = "flex";
 };
 
-function handleCategorySelection(selectedLi) {
-    document.querySelectorAll('#category-list li').forEach(li => li.classList.remove('selected'));
-    selectedLi.classList.add('selected');
-}
-
-
+// Cart Management Functions
 function addToCart(plantId) {
     const plantToAdd = currentPlants.find(plant => plant.id == plantId);
     if (plantToAdd) {
@@ -137,10 +199,12 @@ function addToCart(plantId) {
         if (existingItem) {
             existingItem.quantity++;
         } else {
-            cart.push({...plantToAdd, quantity: 1 });
+            cart.push({ ...plantToAdd,
+                quantity: 1
+            });
         }
         updateCartDisplay();
-        alert(`"${plantToAdd.name}" has been added`);
+        alert(`"${plantToAdd.name}" has been added to the cart.`);
     }
 }
 
@@ -149,7 +213,7 @@ function removeFromCart(plantId) {
     if (itemToRemove) {
         cart = cart.filter(item => item.id != plantId);
         updateCartDisplay();
-        alert(`"${itemToRemove.name}" has been removed`);
+        alert(`"${itemToRemove.name}" has been removed from the cart.`);
     }
 }
 
@@ -169,61 +233,9 @@ function updateCartDisplay() {
         cartItemsContainer.appendChild(itemDiv);
         total += item.price * item.quantity;
     });
+
     cartTotalContainer.innerHTML = `
         <span>Total:</span>
         <span>৳${total}</span>
     `;
 }
-
-
-categoryList.addEventListener("click", (event) => {
-    if (event.target.tagName === "LI") {
-        const li = event.target;
-        const categoryId = li.dataset.categoryId;
-        if (categoryId) {
-            handleCategorySelection(li);
-            fetchAndDisplayPlants(plants_by_categories_URL + categoryId);
-        }
-    }
-});
-
-allTree.addEventListener("click", () => {
-    handleCategorySelection(allTree);
-    fetchAndDisplayPlants(all_plants_URL);
-});
-
-productList.addEventListener("click", (event) => {
-    const target = event.target;
-    if (target.classList.contains("add-to-cart-btn")) {
-        const plantId = target.dataset.plantId;
-        addToCart(plantId);
-    } else if (target.closest(".card")) {
-        const plantId = target.closest(".card").dataset.plantId;
-        loadPlantDetails(plantId);
-    }
-});
-
-cartItemsContainer.addEventListener('click', (event) => {
-    if (event.target.classList.contains('remove-from-cart-btn')) {
-        const plantId = event.target.dataset.plantId;
-        removeFromCart(plantId);
-    }
-});
-
-closeButton.addEventListener("click", () => {
-    modal.style.display = "none";
-});
-window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-});
-
-function initializeApp() {
-    loadAndDisplayCategories();
-    fetchAndDisplayPlants(all_plants_URL);
-    updateCartDisplay();
-    handleCategorySelection(allTree);
-}
-
-initializeApp();
