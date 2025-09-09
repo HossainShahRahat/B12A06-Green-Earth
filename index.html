@@ -44,7 +44,7 @@
 
     <main>
         <section>
-            <h1 class="Tress-Section-Headline" style="text-align: center;">Choose Your Trees</h1>
+            <h1 class="Trees-Section-Headline" style="text-align: center;">Choose Your Trees</h1>
             <div class="Choose-Your-Trees-Section">
                 <div class="Tree-Section-Container-Left">
                     <h2>Categories</h2>
@@ -52,8 +52,8 @@
                         <li id="all-tree">All Trees</li>
                     </ul>
                 </div>
-
                 <div class="Tree-Section-Container-Body" id="card-container">
+                    <div id="loader" class="hidden" style="margin: 0 auto;"></div>
                 </div>
                 <div class="Tree-Section-Container-Right">
                     <h3>Your Cart</h3>
@@ -63,7 +63,6 @@
                     <div id="cart-total">
                     </div>
                 </div>
-
             </div>
         </section>
         <section id="About-Campaign-Container">
@@ -108,7 +107,12 @@
                 <form action=" " class="Plant-a-Tree-Today-Form ">
                     <input type="text" placeholder="Your Name " required>
                     <input type="email" placeholder="Your Email Address " required>
-                    <input type="number" name="Number-of-Trees " id="Number-of-Trees " required placeholder="Number of Trees ">
+                    <select name="Number-of-Trees" id="Number-of-Trees" required>
+                        <option value="Number of Trees">Number of Trees</option>
+                        <option value="1">1 Tree - 5$</option>
+                        <option value="5">5 Trees - 25$</option>
+                        <option value="10">10 Tree - 50$</option>
+                    </select>
                     <div class="button-type-4 ">
                         <button>Donate Now</button>
                     </div>
@@ -121,10 +125,10 @@
         <p>&copy; 2025 Green Earth. All Rights Reserved.</p>
     </footer>
 
-    <div id="plant-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div id="modal-body">
+    <div id="plant-modal " class="modal ">
+        <div class="modal-content ">
+            <span class="close-button ">&times;</span>
+            <div id="modal-body ">
             </div>
         </div>
     </div>

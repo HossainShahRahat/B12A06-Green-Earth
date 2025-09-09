@@ -32,9 +32,26 @@ nav a {
     display: block;
 }
 
+nav a:hover {
+    text-decoration: underline;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
+}
+
+.banner-left-image {
+    width: 546px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.banner-right-image {
+    width: 546px;
+    height: auto;
+    margin-left: 20px;
+    margin-bottom: 0px;
 }
 
 .button-type-1 button {
@@ -65,6 +82,7 @@ nav a {
     border-radius: 999px;
     cursor: pointer;
     font-size: 16px;
+    align-items: center;
     margin: 0 auto;
 }
 
@@ -76,6 +94,12 @@ nav a {
     border-radius: 999px;
     cursor: pointer;
     font-size: 16px;
+}
+
+.button-type-1:hover,
+.button-type-3:hover,
+.button-type-4:hover {
+    opacity: 80%;
 }
 
 .button-type-1 {
@@ -122,7 +146,7 @@ nav a {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 16px;
     width: 343.33px;
-    height: auto;
+    height: 410px;
     background-color: white;
 }
 
@@ -265,28 +289,30 @@ ul li {
 }
 
 .Plant-a-Tree-Today-Form {
-    background-color: #15803d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.Plant-a-Tree-Today-Form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
     background-color: #1e8449;
     border-radius: 16px;
+    padding: 0px 0px 0px 80px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     width: 650px;
     height: 311px;
 }
 
 .Plant-a-Tree-Today-Form input[type=text],
-.Plant-a-Tree-Today-Form input[type=email],
-.Plant-a-Tree-Today-Form input[type=number] {
+.Plant-a-Tree-Today-Form input[type=email] {
+    width: 570px;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#Number-of-Trees {
     width: 570px;
     padding: 12px;
     margin: 8px 0;
@@ -382,12 +408,6 @@ footer {
     margin-top: 1rem;
 }
 
-.Tree-Section-Container-Right {
-    background-color: #f8f8f8;
-    padding: 15px;
-    border-radius: 12px;
-}
-
 .cart-item {
     background-color: #e6f7ea;
     border-radius: 10px;
@@ -442,4 +462,60 @@ footer {
 
 .zoom:hover {
     transform: scale(1.2);
+    background-color: #a1b8a6;
+}
+
+.content-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 300px;
+    grid-column: 1 / -1;
+}
+
+.spinner,
+.spinner:before,
+.spinner:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    animation-fill-mode: both;
+    animation: bblFadInOut 1.8s infinite ease-in-out;
+}
+
+.spinner {
+    color: #15803d;
+    font-size: 7px;
+    position: relative;
+    text-indent: -9999em;
+    transform: translateZ(0);
+    animation-delay: -0.16s;
+}
+
+.spinner:before,
+.spinner:after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+
+.spinner:before {
+    left: -3.5em;
+    animation-delay: -0.32s;
+}
+
+.spinner:after {
+    left: 3.5em;
+}
+
+@keyframes bblFadInOut {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0
+    }
 }
